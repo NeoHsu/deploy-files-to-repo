@@ -1,0 +1,36 @@
+name: docs
+
+on:
+  push:
+    paths:
+      - '**.md'
+      - '.vuepress'
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+jobs:
+  docs:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: Install dependencies
+        run: npm install
+      - name: Build VuePress site
+        run: npm run docs:build
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: .vuepress/dist
+        env:
+          GH_PAT: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
