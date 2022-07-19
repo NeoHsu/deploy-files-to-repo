@@ -1,0 +1,46 @@
+name: "Deploy files to repo"
+description: "Deploy file/folder to another GitHub repository"
+inputs:
+  source_dir:
+    description: "Deploy file or folder from this repo"
+    required: false
+  target_github_domain:
+    description: "GitHub domain"
+    default: "github.com"
+    required: false
+  target_github_api:
+   description: "GitHub API URL"
+   default: "https://api.github.com"
+   required: false
+  target_personal_access_token:
+    description: "Target GitHub personal access token"
+    required: true
+  target_owner:
+    description: "Target GitHub owner"
+    required: true
+  target_repo:
+    description: "Target GitHub repository"
+    required: true
+  target_branch:
+    description: "Target GitHub repository branch"
+    default: "main"
+    required: false
+  target_dir:
+    description: "Deploy target file or folder path into target GitHub repository"
+    required: false
+  target_pre_copy_command:
+    description: "Run command on target repository before copy files"
+    required: false
+  target_pre_commit_command:
+    description: "Run command on target repository before git commit"
+    required: false
+  commit_msg:
+    description: "Custom git commit message"
+    required: false
+  target_pr_branch:
+    description: "Custom PR branch"
+    default: "deploy-files-to-repo--branches"
+    required: false
+runs:
+  using: "docker"
+  image: "Dockerfile"

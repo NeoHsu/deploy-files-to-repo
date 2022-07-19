@@ -1,0 +1,14 @@
+{
+  "name": "deploy-files-to-repo",
+  "description": "Deploy-Files-to-Repo is a GitHub action that help to deploy files into other repository & automate created pull request on target repository.",
+  "author": "Neo T Hsu",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev",
+    "docs:build": "vuepress build",
+    "docs:format": "npx -y prettier --write '{.vuepress/{config,navbar,sidebar}.ts,./**/*.md}'"
+  },
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.41"
+  }
+}
