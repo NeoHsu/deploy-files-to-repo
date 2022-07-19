@@ -1,0 +1,22 @@
+name: release-please
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+permissions:
+  actions: read
+  contents: write
+  packages: write
+  pull-requests: write
+jobs:
+  release-please:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: simple
