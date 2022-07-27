@@ -28,10 +28,10 @@ Before use `Deploy-Files-to-Repo` action, please use `actions/checkout` action f
 
 | Input                        | required | description                                                                                                                   |
 | ---------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| source_dir                   | `false`   | Deploy file or folder from this repository.<br/> eg. `README.md`                                       |
-| target_dir                   | `false`   | Deploy target file or folder path into target GitHub repository.<br/>eg. `doc/README.md` of `.elastic_runner`                 |
-| target_github_domain         | `false`  | Target GitHub domain.<br/>`default`: `github.com`                                                              |
-| target_github_api            | `false`  | Target GitHub API URL.<br/>`default`: `https://api.github.com`                                              |
+| source_dir                   | `false`  | Deploy file or folder from this repository.<br/> eg. `README.md`                                                              |
+| target_dir                   | `false`  | Deploy target file or folder path into target GitHub repository.<br/>eg. `doc/README.md` of `.elastic_runner`                 |
+| target_github_domain         | `false`  | Target GitHub domain.<br/>`default`: `github.com`                                                                             |
+| target_github_api            | `false`  | Target GitHub API URL.<br/>`default`: `https://api.github.com`                                                                |
 | target_personal_access_token | `true`   | Target GitHub personal access token                                                                                           |
 | target_owner                 | `true`   | Target GitHub owner                                                                                                           |
 | target_repo                  | `true`   | Target GitHub repository                                                                                                      |
@@ -39,6 +39,7 @@ Before use `Deploy-Files-to-Repo` action, please use `actions/checkout` action f
 | target_pre_copy_command      | `false`  | Run command on target repository before copy files flow.<br/>This command path is on `$GITHUB_WORKSPACE`                      |
 | target_pre_commit_command    | `false`  | Run command on target repository before git commit.<br/>This command path is on `$GITHUB_WORKSPACE/__${TARGET_REPO}__clone__` |
 | commit_msg                   | `false`  | Custom git commit message.<br/>`default`: `Deployed $SOURCE_DIR into $TARGET_DIR from $GITHUB_REPOSITORY@${GIT_SHA_SHORT}`    |
+| pr_title                     | `false`  | Custom PR title.<br/>`default`: `Deployed files from ${GITHUB_REPOSITORY}`                                                    |
 | target_pr_branch             | `false`  | Custom PR branch.<br/>`default`: `deploy-files-to-repo--branches`                                                             |
 
 ### Usage

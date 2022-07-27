@@ -37,6 +37,10 @@ inputs:
   commit_msg:
     description: "Custom git commit message"
     required: false
+  pr_title:
+    description: "Custom PR title"
+    default: "Deployed files from GITHUB_REPOSITORY"
+    required: false
   target_pr_branch:
     description: "Custom PR branch"
     default: "deploy-files-to-repo--branches"
