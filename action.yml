@@ -1,5 +1,9 @@
 name: "Deploy files to repo"
 description: "Deploy file/folder to another GitHub repository"
+author: "NeoHsu"
+branding:
+  icon: "git-pull-request"
+  color: "black"
 inputs:
   source_dir:
     description: "Deploy file or folder from this repo"
